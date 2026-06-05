@@ -1,9 +1,9 @@
 # 23BQ1A4201
 
-Name: Adhimulam Bhargav Sai Viswanath
-Roll No: 23BQ1A4201
-GitHub: https://github.com/AdhimulamBhargavSaiViswanath-05
-RepoURL: https://github.com/AdhimulamBhargavSaiViswanath-05/23BQ1A4201
+- Name: Adhimulam Bhargav Sai Viswanath
+- Roll No: 23BQ1A4201
+- GitHub: https://github.com/AdhimulamBhargavSaiViswanath-05
+- RepoURL: https://github.com/AdhimulamBhargavSaiViswanath-05/23BQ1A4201
 
 Task Provider: Afford Med Tek
 
