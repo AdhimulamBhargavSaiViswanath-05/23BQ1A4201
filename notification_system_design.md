@@ -21,4 +21,8 @@ so that you can get the that registerd successfuly. and then after: you shoub be
 
 7. so this si abotu the registiton and the autnteicaion proess & tokne genration. 
 8. in theporjct i have mainlu used teh very biac syntx: to show. so that it comes to match iwth given the task. 
-9. 
+9. now basically we hvae ocmpletd teh rgiven task very easy and added the screenshots too for reference. 
+10. Here: since these are not proejcted - no security: so we have to manage teh cors error issues. so to overcome taht: i have used the local proxy servers issues. 
+
+
+Finally this is basic notificaionts reactjs application. 
