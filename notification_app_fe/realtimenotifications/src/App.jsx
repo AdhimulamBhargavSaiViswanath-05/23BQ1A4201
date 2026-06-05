@@ -5,13 +5,16 @@ export default function App() {
   const [read, setRead] = useState([]);
 
   useEffect(() => {
-    fetch('http://4.224.186.213/evaluation-service/notifications', {
+    fetch('/api/evaluation-service/notifications', {
+      method: 'GET',
       headers: { 
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiYXVkIjoiaHR0cDovLzIwLjI0NC41Ni4xNDQvZXZhbHVhdGlvbi1zZXJ2aWNlIiwiZW1haWwiOiJiaGFyZ2F2c2FpYWRoaW11bGFtMTJAZ21haWwuY29tIiwiZXhwIjoxNzgwNjM4Mzk0LCJpYXQiOjE3ODA2Mzc0OTQsImlzcyI6IkFmZm9yZCBNZWRpY2FsIFRlY2hub2xvZ2llcyBQcml2YXRlIExpbWl0ZWQiLCJqdGkiOiJlOWQwNjlhNS02OGU3LTQ5ZWUtYjRkZS0wYWRiYTA3Y2QzNDIiLCJsb2NhbGUiOiJlbi1JTiIsIm5hbWUiOiJhZGhpbXVsYW0gYmhhcmdhdiBzYWkgdmlzd2FuYXRoIiwic3ViIjoiMTEwMzQzYjQtNGFmNS00ODQxLWJiYTgtZjZkOTdhOWQ4ZTUzIn0sImVtYWlsIjoiYmhhcmdhdnNhaWFkaGltdWxhbTEyQGdtYWlsLmNvbSIsIm5hbWUiOiJhZGhpbXVsYW0gYmhhcmdhdiBzYWkgdmlzd2FuYXRoIiwicm9sbE5vIjoiMjNicTFhNDIwMSIsImFjY2Vzc0NvZGUiOiJRUWRFWXkiLCJjbGllbnRJRCI6IjExMDM0M2I0LTRhZjUtNDg0MS1iYmE4LWY2ZDk3YTlkOGU1MyIsImNsaWVudFNlY3JldCI6InlOQ0RtU1loRGFZc0h4aFcifQ.cvSpcjxFmzFCvMMe4IdGsb39tKqRcJY2vhjfSdcuSGs' 
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiYXVkIjoiaHR0cDovLzIwLjI0NC41Ni4xNDQvZXZhbHVhdGlvbi1zZXJ2aWNlIiwiZW1haWwiOiJiaGFyZ2F2c2FpYWRoaW11bGFtMTJAZ21haWwuY29tIiwiZXhwIjoxNzgwNjM5NzQxLCJpYXQiOjE3ODA2Mzg4NDEsImlzcyI6IkFmZm9yZCBNZWRpY2FsIFRlY2hub2xvZ2llcyBQcml2YXRlIExpbWl0ZWQiLCJqdGkiOiIzMDlmZWU2Ni1iY2QxLTRmODAtYjQ2Ny1lNDhlMDFkNWQ4ZDkiLCJsb2NhbGUiOiJlbi1JTiIsIm5hbWUiOiJhZGhpbXVsYW0gYmhhcmdhdiBzYWkgdmlzd2FuYXRoIiwic3ViIjoiMTEwMzQzYjQtNGFmNS00ODQxLWJiYTgtZjZkOTdhOWQ4ZTUzIn0sImVtYWlsIjoiYmhhcmdhdnNhaWFkaGltdWxhbTEyQGdtYWlsLmNvbSIsIm5hbWUiOiJhZGhpbXVsYW0gYmhhcmdhdiBzYWkgdmlzd2FuYXRoIiwicm9sbE5vIjoiMjNicTFhNDIwMSIsImFjY2Vzc0NvZGUiOiJRUWRFWXkiLCJjbGllbnRJRCI6IjExMDM0M2I0LTRhZjUtNDg0MS1iYmE4LWY2ZDk3YTlkOGU1MyIsImNsaWVudFNlY3JldCI6InlOQ0RtU1loRGFZc0h4aFcifQ.aGoNu9hle39eAdMRXx0mcJKBCULeaxA9903pvsm3nek',
+        'Content-Type': 'application/json'
       }
     }) 
       .then(r => r.json())
-      .then(d => setList(d.notifications || []));
+      .then(d => setList(d.notifications || []))
+      .catch(err => console.error("Local proxy failure:", err));
   }, []);
 
   return (
@@ -22,7 +25,6 @@ export default function App() {
         <p 
           key={x.ID} 
           onClick={() => setRead([...read, x.ID])}
-      
           style={{ cursor: 'pointer', padding: '5px', borderBottom: '1px solid #eee' }}
         >
           <b>[{x.Type}]</b> {x.Message} — {read.includes(x.ID) ? 'Read' : 'New'}
